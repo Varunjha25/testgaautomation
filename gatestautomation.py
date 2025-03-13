@@ -9,7 +9,6 @@ import json
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.data_v1beta.types import RunReportRequest, DateRange, Metric, Dimension
 
-# Configure logging to a file
 logging.basicConfig(
     filename="ga-4-report.app.log", 
     level=logging.INFO, 
@@ -28,11 +27,10 @@ def authenticate():
         credentials = service_account.Credentials.from_service_account_info(credentials_json, scopes=SCOPES)
         client = BetaAnalyticsDataClient(credentials=credentials)
         
-        # authentication  successful run 
-        print("✅ Authentication successful!")
+        print(" Authentication successful!")
        
         
-        # Print the token info
+        
         if credentials.token:
             print(f"Access token received: {credentials.token[:20]}...")
 
@@ -112,7 +110,7 @@ def main():
     
     args = parser.parse_args()
 
-    # defualt  last 30 days
+    
     start_date = args.start_date if args.start_date else get_default_dates()[0]
     end_date = args.end_date if args.end_date else get_default_dates()[1]
 
