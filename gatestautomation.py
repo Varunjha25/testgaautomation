@@ -27,7 +27,7 @@ def authenticate():
         credentials = service_account.Credentials.from_service_account_info(credentials_json, scopes=SCOPES)
         client = BetaAnalyticsDataClient(credentials=credentials)
         
-        print(" Authentication successful!")
+        print("Authentication successful!")
        
         
         
